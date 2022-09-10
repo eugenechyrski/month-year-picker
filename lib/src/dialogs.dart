@@ -159,7 +159,6 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
   @override
   Widget build(BuildContext context) {
     final materialLocalizations = MaterialLocalizations.of(context);
-    final localizations = MonthYearPickerLocalizations.of(context);
     final media = MediaQuery.of(context);
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
@@ -173,28 +172,8 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
     final onPrimarySurface = colorScheme.brightness == Brightness.light
         ? colorScheme.onPrimary
         : colorScheme.onSurface;
-    final dateStyle = orientation == Orientation.landscape
-        ? textTheme.headline5?.copyWith(color: onPrimarySurface)
-        : textTheme.headline4?.copyWith(color: onPrimarySurface);
 
-    final Widget actions = Container(
-      alignment: AlignmentDirectional.centerEnd,
-      constraints: const BoxConstraints(minHeight: 52.0),
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: OverflowBar(
-        spacing: 8.0,
-        children: <Widget>[
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(localizations.cancelButtonLabel),
-          ),
-          TextButton(
-            onPressed: () => Navigator.pop(context, _selectedDate),
-            child: Text(localizations.okButtonLabel),
-          ),
-        ],
-      ),
-    );
+
 
     final switcher = Stack(
       children: [
@@ -315,13 +294,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
     final dialogSize = _dialogSize * textScaleFactor;
     return Directionality(
       textDirection: direction,
-      child: Dialog(
-        insetPadding: const EdgeInsets.symmetric(
-          horizontal: 16.0,
-          vertical: 24.0,
-        ),
-        clipBehavior: Clip.antiAlias,
-        child: AnimatedContainer(
+      child:  AnimatedContainer(
           width: dialogSize.width,
           height: dialogSize.height,
           duration: _dialogSizeAnimationDuration,
@@ -364,7 +337,7 @@ class _MonthYearPickerDialogState extends State<MonthYearPickerDialog> {
             ),
           ),
         ),
-      ),
+
     );
   }
 

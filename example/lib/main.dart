@@ -52,6 +52,14 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            MonthYearPickerDialog(
+            initialDate: DateTime.now(),
+        firstDate: DateTime(2019),
+        lastDate: DateTime.now(),
+        onMonthSelected: (d) => print(d),
+        initialMonthYearPickerMode: MonthYearPickerMode.month,
+        selectableMonthYearPredicate: (d) => true,
+      ),
             if (_selected == null)
               const Text('No month year selected.')
             else
