@@ -2,7 +2,6 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart' hide YearPicker;
 
-import 'l10n/month_year_picker_localizations.dart';
 import 'pickers.dart';
 import 'utils.dart';
 
